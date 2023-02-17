@@ -1,0 +1,77 @@
+<div class="stats-container">
+    <div class="info-box">
+        <div class="label">
+            Autorefresh Time:
+        </div>
+        <div class="value">
+            {{autoRefreshInterval}} m
+        </div>
+    </div>
+    <div class="info-box">
+        <div class="label">
+            Since Last Refresh:
+        </div>
+        <div class="value">
+            <span *ngIf="showLastUpdateInfo.days && showLastUpdateInfo.days > 0">{{showLastUpdateInfo.days}} d&nbsp;</span>
+            <span *ngIf="showLastUpdateInfo.hours && showLastUpdateInfo.hours > 0">{{showLastUpdateInfo.hours}} h&nbsp;</span>
+            <span>{{showLastUpdateInfo.minutes}} m&nbsp;</span>
+            <span>{{showLastUpdateInfo.seconds}} s</span>
+        </div>
+    </div>
+    <div class="btn-box">
+        <button class="btn-refresh" type="button" (click)="onRefresh()">
+            <span>Refresh data</span>
+        </button>
+        <div class="btn-overlay"  *ngIf="isLoading"> <app-spinner></app-spinner></div>
+    </div>
+    <div class="stat-box">
+        <div class="label">
+            Power
+        </div>
+        <div class="value">
+            {{batteryPower | number : '1.3-3'}} kW
+        </div>
+    </div>
+    <div class="stat-box">
+        <div class="label">
+            Status of Charge
+        </div>
+        <div class="value">
+            {{batterySOC | number : '1.2-2'}} %
+            <app-charge-bar [percentage]="batterySOC"></app-charge-bar>
+        </div>
+    </div>
+    <div class="stat-box">
+        <div class="label">
+            Battery Current
+        </div>
+        <div class="value">
+            {{batteryCurrent | number : '1.3-3'}} A
+        </div>
+    </div>
+    <div class="stat-box">
+        <div class="label">
+            Battery Voltage
+        </div>
+        <div class="value">
+            {{batteryVoltage | number : '1.3-3'}} V
+        </div>
+    </div>
+    
+    <div class="stat-box">
+        <div class="label">
+            Cells &#8710;
+        </div>
+        <div class="value">
+            {{batteryDelta | number : '1.2-2'}} mV
+        </div>
+    </div>
+    <div class="stat-box">
+        <div class="label">
+            Contactor
+        </div>
+        <div class="value">
+            {{contactorState | uppercase}} 
+        </div>
+    </div>
+</div>

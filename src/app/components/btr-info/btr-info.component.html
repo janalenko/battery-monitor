@@ -1,0 +1,8 @@
+<div class="info-container">
+    <div class="stats-module">
+        <app-btr-stats></app-btr-stats>
+    </div>
+    <div class="btr-module">
+        <app-btr-module *ngFor="let module of modules" [module]="module"></app-btr-module>
+    </div>
+</div>

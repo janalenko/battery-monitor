@@ -1,0 +1,54 @@
+@import 'src/styles.scss';
+
+// div.outer{
+//     display: block;
+//     // align-items: center;
+//     // justify-content: center;
+//     // width: 100%;
+// }
+// div.inner{
+    
+//     width: .5em;
+//     height: .5em;
+//     margin: auto
+// }
+
+div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+
+span{
+    display: inline-flex;
+    transition-property: opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  
+}
+svg{
+    animation: spin 1s linear infinite;
+    height: 1em;
+    width: 1em;
+
+}
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+.o-0{
+    opacity: 0
+}
+.o-25{
+    opacity: 25%
+}
+.o-75{
+    opacity: 75%
+}

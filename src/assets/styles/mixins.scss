@@ -1,0 +1,9 @@
+
+@mixin box-color-scheme($color){
+    border-color: $color;
+    .label {
+        background-color: $color;
+        border-bottom-color: $color;
+        box-shadow: 0.5px -0.5px 1px 1px $color;
+    }
+}

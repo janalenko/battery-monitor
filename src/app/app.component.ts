@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataService } from './_services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'battery-monitor-system';
+  constructor(
+    private dataService : DataService
+  ){
+
+  }
+
+  ngOnInit(): void{
+    this.dataService.getAllData()
+  }
 }
