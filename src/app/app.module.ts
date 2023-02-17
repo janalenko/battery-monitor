@@ -9,6 +9,7 @@ import { BtrCellComponent } from './components/btr-cell/btr-cell.component';
 import { BtrInfoComponent } from './components/btr-info/btr-info.component';
 import { ChargeBarComponent } from './components/charge-bar/charge-bar.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

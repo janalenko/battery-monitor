@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { interval, Subscription } from 'rxjs';
 import { BmsInfo } from 'src/app/_models/bms-info.model';
 import { DataService } from 'src/app/_services/data.service';
@@ -22,6 +23,9 @@ export class BtrStatsComponent implements OnInit, OnDestroy {
   showLastUpdateRefreshRate = 1 // time in seconds
   showLastUpdateRefreshIntervals$ = interval(this.showLastUpdateRefreshRate * 1000)
   autoRefreshInterval = 5 // time in minutes
+
+  editMode : boolean = false
+  form: FormGroup = new FormGroup({interval: new FormControl(this.autoRefreshInterval, Validators.min(1))},)
 
   constructor(
     private dataService: DataService
@@ -83,6 +87,20 @@ export class BtrStatsComponent implements OnInit, OnDestroy {
   private refreshData(){
     this.isLoading = true
     this.dataService.getAllData()
+  }
+
+  toggleEdit(){
+    this.editMode = !this.editMode
+    if (!this.editMode){
+      this.form.get('interval')?.setValue(this.autoRefreshInterval)
+    }
+  }
+
+  onSubmit(){
+    if (this.form.touched && this.form.valid) {
+      this.autoRefreshInterval = this.form.get('interval')?.value ? this.form.get('interval')?.value : this.autoRefreshInterval
+      this.editMode = false
+    }
   }
 
   ngOnDestroy(): void {

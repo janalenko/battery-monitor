@@ -3,9 +3,17 @@
         <div class="label">
             Autorefresh Time:
         </div>
-        <div class="value">
-            {{autoRefreshInterval}} m
+        <div class="value with-icon">
+            <div>{{autoRefreshInterval}} m</div>
+            <div class="btn-icon" (click)="toggleEdit()"><img src="assets/icons/pen.png" alt=""></div>
+            <!-- <button class="btn-icon"><img src="assets/icons/pen.png" alt="" class="icon"></button> -->
         </div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="editMode">
+            <div class="input-box" >
+                <input type="number" formControlName="interval" min="1" step="1">
+                <button type="submit">OK</button>    
+            </div>
+        </form>
     </div>
     <div class="info-box">
         <div class="label">

@@ -7,3 +7,15 @@
         box-shadow: 0.5px -0.5px 1px 1px $color;
     }
 }
+
+@mixin button-color-scheme($color){
+    box-shadow: 0px 0px .5px .5px rgba($color: $color, $alpha: .8);
+    background-image: linear-gradient(rgba($color: $color, $alpha: 1), rgba($color: $color, $alpha: .75));
+    &:hover {
+        box-shadow: 0px 0px .5px .5px rgba($color: $color, $alpha: 1);
+    }
+    &:active{
+        box-shadow: inset 0px 0px .5px .5px rgba($color: $color, $alpha: .8);
+        opacity: .85;
+    }
+}
