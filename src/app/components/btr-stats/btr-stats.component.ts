@@ -97,7 +97,7 @@ export class BtrStatsComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(){
-    if (this.form.touched && this.form.valid) {
+    if (this.form.valid) {
       this.autoRefreshInterval = this.form.get('interval')?.value ? this.form.get('interval')?.value : this.autoRefreshInterval
       this.editMode = false
     }

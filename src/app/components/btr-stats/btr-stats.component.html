@@ -6,7 +6,6 @@
         <div class="value with-icon">
             <div>{{autoRefreshInterval}} m</div>
             <div class="btn-icon" (click)="toggleEdit()"><img src="assets/icons/pen.png" alt=""></div>
-            <!-- <button class="btn-icon"><img src="assets/icons/pen.png" alt="" class="icon"></button> -->
         </div>
         <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="editMode">
             <div class="input-box" >
